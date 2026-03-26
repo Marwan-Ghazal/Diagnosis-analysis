@@ -17,7 +17,7 @@ after = df.shape[0]
 print(f"Removed {before - after} duplicate rows")
 
 numeric_cols = [
-    "age","gender ","chest_pain_type", "blood_pressure", "cholesterol", "max_heart_rate", "exercise_angina"
+    "age","gender","chest_pain_type", "blood_pressure", "cholesterol", "max_heart_rate", "exercise_angina",
     "plasma_glucose", "skin_thickness", "insulin", "bmi", "diabetes_pedigree", "hypertension", "heart_disease"
 ]
 categorical_cols = ["residence_type", "smoking_status"]
@@ -62,6 +62,14 @@ for col in numeric_features:
 
 
 #pca task 3
-pca = PCA(n_components=0.95)
-df_pca = pca.fit_transform(df[numeric_cols])
-print(f"Reduced to {df_pca.shape[1]} components explaining 95% variance")
+pca = PCA(n_components=7)
+df_pca = pca.fit_transform(df[numeric_features])
+print(f"Reduced to {df_pca.shape[1]} components")
+
+#Discretization
+df["age_group"] = pd.cut(df["age"], bins=3, labels=["Young", "Middle", "Senior"])
+
+
+#save data
+df.to_csv("data_preprocessed.csv", index=False)
+print(f"Saved data_preprocessed.csv: {df.shape[0]} rows, {df.shape[1]} columns")
