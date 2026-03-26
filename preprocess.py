@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.decomposition import PCA
- 
+from sklearn.feature_selection import VarianceThreshold
 
 input_path = sys.argv[1]
 df = pd.read_csv(input_path)
@@ -47,3 +47,21 @@ df["smoking_status"] = encoder.fit_transform(df["smoking_status"])
 #scale numerical features task 3
 scaler = StandardScaler()
 df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
+
+
+#dimensionality reduction
+# removing skin thickness column as it is unrelatable task 1
+df = df.drop("skin_thickness", axis=1)
+
+# removing low variance columns task 2
+numeric_features = df.columns.tolist()
+for col in numeric_features:
+    if df[col].var() < 0.01:
+        df = df.drop(columns=[col])
+        print(f"Removed low variance column: {col}")
+
+
+#pca task 3
+pca = PCA(n_components=0.95)
+df_pca = pca.fit_transform(df[numeric_cols])
+print(f"Reduced to {df_pca.shape[1]} components explaining 95% variance")
