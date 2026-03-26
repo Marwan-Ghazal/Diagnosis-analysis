@@ -14,7 +14,6 @@ df = pd.read_csv(input_path)
 before = df.shape[0]
 df = df.drop_duplicates()
 after = df.shape[0]
-print(f"Removed {before - after} duplicate rows")
 
 numeric_cols = [
     "age","gender","chest_pain_type", "blood_pressure", "cholesterol", "max_heart_rate", "exercise_angina",
@@ -62,12 +61,17 @@ for col in numeric_features:
 
 
 #pca task 3
-pca = PCA(n_components=7)
+pca = PCA(n_components=5)
 df_pca = pca.fit_transform(df[numeric_features])
-print(f"Reduced to {df_pca.shape[1]} components")
+df_pca = pd.DataFrame(
+    df_pca,
+    columns=[f"PCA_{i+1}" for i in range(5)],
+    index=df.index
+)
+df = pd.concat([df, df_pca], axis=1)
 
 #Discretization
-df["age_group"] = pd.cut(df["age"], bins=3, labels=["Young", "Middle", "Senior"])
+df["age_group"] = pd.cut(df["age"], bins=[0, 30, 50, 100], labels=[1, 2, 3])
 
 
 #save data
