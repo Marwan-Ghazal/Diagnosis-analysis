@@ -1,0 +1,18 @@
+K-Means Clustering Results
+========================================
+Total samples: 6000
+Number of clusters: 4
+Features used: age, gender, chest_pain_type, blood_pressure, cholesterol, max_heart_rate, exercise_angina, plasma_glucose, insulin, bmi, diabetes_pedigree, hypertension, heart_disease, residence_type, smoking_status, PCA_1, PCA_2, PCA_3, PCA_4, PCA_5, age_group
+========================================
+
+Samples per cluster:
+--------------------
+Cluster 0: 1470 samples (24.5%)
+Cluster 1: 1542 samples (25.7%)
+Cluster 2: 1520 samples (25.3%)
+Cluster 3: 1468 samples (24.5%)
+
+
+Clustering Statistics:
+--------------------
+Inertia (within-cluster sum of squares): 101534.56
