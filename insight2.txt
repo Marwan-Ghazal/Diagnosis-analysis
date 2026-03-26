@@ -1,0 +1,20 @@
+Data Analysis
+
+1. Heart Disease Comparison
+Average age:
+With heart disease: nan
+Without heart disease: nan
+
+Average blood pressure:
+With heart disease: nan
+Without heart disease: nan
+
+Average cholesterol:
+With heart disease: nan
+Without heart disease: nan
+
+2. Smoking Status vs Hypertension
+1: 1.0% have hypertension
+2: -4.9% have hypertension
+0: -0.2% have hypertension
+
