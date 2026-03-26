@@ -59,3 +59,19 @@ insight2 += "\n"
 with open("insight2.txt", "w") as f:
     f.write(insight2)
 
+# insight 3
+
+insight3 = "Summary Statistics\n\n"
+ 
+insight3 += f"Total patients: {len(df)}\n"
+insight3 += f"Total features: {len(df.columns)}\n\n"
+ 
+insight3 += "Numeric Columns Summary\n"
+insight3 += df.describe().to_string() + "\n\n"
+ 
+insight3 += "Column Data Types\n"
+for col in df.columns:
+    insight3 += f"  {col}: {df[col].dtype}\n"
+ 
+with open("insight3.txt", "w") as f:
+    f.write(insight3)
