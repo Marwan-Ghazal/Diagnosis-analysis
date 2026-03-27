@@ -98,3 +98,10 @@ This will:
 - Ensure the container is running before executing the scripts.
 - All outputs are generated in the `/app/pipeline/` directory inside the container.
 - Visualizations use matplotlib with 'Agg' backend for headless operation.
+
+## Team Members:
+
+- Jannah Ashraf ()
+- Marwan Ghazal ()
+- Omar Abdelrazek ()
+- Abdulmonem Demerdash (231000114)
