@@ -101,7 +101,7 @@ This will:
 
 ## Team Members:
 
-- Jannah Ashraf ()
-- Marwan Ghazal ()
-- Omar Abdelrazek ()
+- Jannah Ashraf (231001399)
+- Marwan Ghazal (231000765)
+- Omar Abdelrazek (231000573)
 - Abdulmonem Demerdash (231000114)
