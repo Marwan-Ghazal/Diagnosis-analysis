@@ -66,7 +66,7 @@ try:
     
     counts = df['cluster'].value_counts().sort_index()
     
-    with open("clusters.txt", "w") as f:
+    with open("results/clusters.txt", "w") as f:
         f.write("K-Means Clustering Results\n")
         f.write("=" * 40 + "\n")
         f.write(f"Total samples: {len(df)}\n")
