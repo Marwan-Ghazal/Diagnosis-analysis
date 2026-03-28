@@ -1,15 +1,18 @@
 #!/bin/bash
+mkdir -p results
 
-# Create the results directory on the host if it doesn't exist
-mkdir -p customer-analytics/results/
+docker cp pipeline-container:/app/pipeline/data_raw.csv results/
+docker cp pipeline-container:/app/pipeline/data_preprocessed.csv results/
+docker cp pipeline-container:/app/pipeline/insight1.txt results/
+docker cp pipeline-container:/app/pipeline/insight2.txt results/
+docker cp pipeline-container:/app/pipeline/insight3.txt results/
+docker cp pipeline-container:/app/pipeline/summary_plot.png results/
+docker cp pipeline-container:/app/pipeline/clusters.txt results/
 
-# Copy all generated outputs (.csv, .txt, .png) from the container to the host
-docker cp diagnosis-container:/app/pipeline/*.csv customer-analytics/results/
-docker cp diagnosis-container:/app/pipeline/*.txt customer-analytics/results/
-docker cp diagnosis-container:/app/pipeline/*.png customer-analytics/results/
+echo "saved outputs to results/"
 
-# Stop and remove the running container
-docker stop diagnosis-container
-docker rm diagnosis-container
+docker stop pipeline-container
+docker rm pipeline-container
 
-echo "Outputs copied to customer-analytics/results/ and container stopped and removed."
+echo "removed container"
+ 
