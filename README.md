@@ -82,4 +82,6 @@ This will:
 - Abdulmonem Demerdash (231000114)
 
 ---
-[Image link](https://hub.docker.com/repository/docker/jannahhhh/diagnosis-analytics/general)
+[Dockerhub image link](https://hub.docker.com/repository/docker/jannahhhh/diagnosis-analytics/general)
+
+[Github link](https://github.com/Marwan-Ghazal/Diagnosis-analysis)
