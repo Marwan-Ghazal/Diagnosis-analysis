@@ -6,13 +6,13 @@ RUN pip install --no-cache-dir \
     matplotlib \
     seaborn \
     scikit-learn \
-    scipy \
-    requests
-
-RUN mkdir -p /app/pipeline/
+    scipy
 
 COPY . /app/pipeline/
 
 WORKDIR /app/pipeline/
 
-CMD ["/bin/bash"]
+CMD python ingest.py patient_dataset.csv && \
+    python preprocess.py data_raw.csv && \
+    python analytics.py data_preprocessed.csv && \
+    python visualize.py data_preprocessed.csv

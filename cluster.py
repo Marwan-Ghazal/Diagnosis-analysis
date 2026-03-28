@@ -5,6 +5,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 
+
 def preprocess_for_clustering(df, numeric_columns=None):
     """
     Prepare data for clustering by handling non-numeric columns and missing values
@@ -91,6 +92,3 @@ try:
 except Exception as e:
     print(f"Error during clustering: {e}")
     sys.exit(1)
-    
-if os.path.exists("summary.sh"):
-    os.system("bash summary.sh")
