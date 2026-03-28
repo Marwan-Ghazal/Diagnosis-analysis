@@ -91,3 +91,6 @@ try:
 except Exception as e:
     print(f"Error during clustering: {e}")
     sys.exit(1)
+    
+if os.path.exists("summary.sh"):
+    os.system("bash summary.sh")
