@@ -15,18 +15,7 @@ def preprocess_for_clustering(df, numeric_columns=None):
     else:
         numeric_df = df[numeric_columns].select_dtypes(include=[np.number])
     
-    imputer = SimpleImputer(strategy='mean')
-    numeric_df_imputed = pd.DataFrame(
-        imputer.fit_transform(numeric_df),
-        columns=numeric_df.columns
-    )
-    
-    scaler = StandardScaler()
-    numeric_df_scaled = pd.DataFrame(
-        scaler.fit_transform(numeric_df_imputed),
-        columns=numeric_df.columns
-    )
-    
+
     return numeric_df_scaled, numeric_df_imputed.columns.tolist()
 
 df = pd.read_csv(sys.argv[1])
