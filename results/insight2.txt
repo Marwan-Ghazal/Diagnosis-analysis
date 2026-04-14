@@ -2,19 +2,19 @@ Data Analysis
 
 1. Heart Disease Comparison
 Average age:
-With heart disease: nan
-Without heart disease: nan
+With heart disease: 53.38
+Without heart disease: 53.93
 
 Average blood pressure:
-With heart disease: nan
-Without heart disease: nan
+With heart disease: -0.01
+Without heart disease: 0.01
 
 Average cholesterol:
-With heart disease: nan
-Without heart disease: nan
+With heart disease: 0.00
+Without heart disease: -0.00
 
 2. Smoking Status vs Hypertension
-1: 1.0% have hypertension
-2: -4.9% have hypertension
-0: -0.2% have hypertension
+1: 50.6% have hypertension
+2: 47.7% have hypertension
+0: 50.0% have hypertension
 

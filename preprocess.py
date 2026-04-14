@@ -2,6 +2,7 @@ import sys
 import os
 import pandas as pd
 import numpy as np
+import subprocess
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.feature_selection import VarianceThreshold
@@ -16,10 +17,10 @@ df = df.drop_duplicates()
 after = df.shape[0]
 
 numeric_cols = [
-    "age","gender","chest_pain_type", "blood_pressure", "cholesterol", "max_heart_rate", "exercise_angina",
-    "plasma_glucose", "skin_thickness", "insulin", "bmi", "diabetes_pedigree", "hypertension", "heart_disease"
+    "age", "blood_pressure", "cholesterol", "max_heart_rate",
+    "plasma_glucose", "skin_thickness", "insulin", "bmi", "diabetes_pedigree"
 ]
-categorical_cols = ["residence_type", "smoking_status"]
+categorical_cols = ["residence_type", "smoking_status", "exercise_angina","gender","chest_pain_type","hypertension", "heart_disease"]
 
 #removing missing values task 2
 for col in numeric_cols:
@@ -43,9 +44,13 @@ df["residence_type"] = encoder.fit_transform(df["residence_type"])
 encoder = LabelEncoder()
 df["smoking_status"] = encoder.fit_transform(df["smoking_status"])
 
+numeric_cols_scale = [
+    "blood_pressure", "cholesterol", "max_heart_rate",
+    "plasma_glucose", "insulin", "bmi", "diabetes_pedigree", 
+]
 #scale numerical features task 3
 scaler = StandardScaler()
-df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
+df[numeric_cols_scale] = scaler.fit_transform(df[numeric_cols_scale])
 
 
 #dimensionality reduction
@@ -75,5 +80,19 @@ df["age_group"] = pd.cut(df["age"], bins=[0, 30, 50, 100], labels=[1, 2, 3])
 
 
 #save data
-df.to_csv("data_preprocessed.csv", index=False)
+output_file = "data_preprocessed.csv"
+df.to_csv(output_file, index=False)
 print(f"Saved data_preprocessed.csv: {df.shape[0]} rows, {df.shape[1]} columns")
+
+# Call downstream scripts
+scripts = ["analytics.py", "cluster.py", "visualize.py", "visualizee.py"]
+for script in scripts:
+    if os.path.exists(script):
+        print(f"\n--- Running {script} ---")
+        try:
+            subprocess.run([sys.executable, script, output_file], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"Error running {script}: {e}")
+    else:
+        if script != "visualizee.py": # Already checked it might be missing
+             print(f"Warning: {script} not found.")

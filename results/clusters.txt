@@ -7,12 +7,12 @@ Features used: age, gender, chest_pain_type, blood_pressure, cholesterol, max_he
 
 Samples per cluster:
 --------------------
-Cluster 0: 1470 samples (24.5%)
-Cluster 1: 1542 samples (25.7%)
-Cluster 2: 1520 samples (25.3%)
-Cluster 3: 1468 samples (24.5%)
+Cluster 0: 1386 samples (23.1%)
+Cluster 1: 1586 samples (26.4%)
+Cluster 2: 1376 samples (22.9%)
+Cluster 3: 1652 samples (27.5%)
 
 
 Clustering Statistics:
 --------------------
-Inertia (within-cluster sum of squares): 101534.56
+Inertia (within-cluster sum of squares): 102525.67

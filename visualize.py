@@ -92,7 +92,3 @@ print("\nLAYOUT (4 ROWS x 3 COLS):")
 print("  ROW 1-2: Histograms (6 total)")
 print("  ROW 3: Correlation Heatmap (center)")
 print("  ROW 4: Box Plots (center)")
-
-if os.path.exists("cluster.py"):
-    print("\n➡ Proceeding to clustering...")
-    os.system("python cluster.py data_preprocessed.csv")
