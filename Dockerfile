@@ -12,7 +12,4 @@ COPY . /app/pipeline/
 
 WORKDIR /app/pipeline/
 
-CMD python ingest.py patient_dataset.csv && \
-    python preprocess.py data_raw.csv && \
-    python analytics.py data_preprocessed.csv && \
-    python visualize.py data_preprocessed.csv
+CMD ["python", "ingest.py", "patient_dataset.csv"]
